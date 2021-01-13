@@ -60,7 +60,7 @@ const Layout = ({ user, children, location: { pathname, search } }) => {
 
   return (
     <Fragment>
-      <Helmet titleTemplate="Earnie React | %s" title="React Admin Template" />
+      <Helmet titleTemplate="Earnie | %s" title="v 0.1" />
       {BootstrappedLayout()}
     </Fragment>
   )

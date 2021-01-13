@@ -52,7 +52,7 @@ const AuthLayout = ({
               <div className={style.logo}>
                 <img src="resources/images/logo.svg" className="mr-2" alt="Clean UI" />
                 <div className={style.name}>{logo}</div>
-                {logo === 'Earnie' && <div className={style.descr}>React</div>}
+                {logo === 'Earnie' && <div className={style.descr}>Beta</div>}
               </div>
             </div>
             <div className="d-none d-sm-block">
