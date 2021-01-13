@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Input, Button, Radio, Form, Tooltip } from 'antd'
+import { Input, Button, Form /* Radio, , Tooltip */ } from 'antd'
 import { Link } from 'react-router-dom'
 import style from '../style.module.scss'
 
@@ -11,7 +11,7 @@ const mapStateToProps = ({ user, settings, dispatch }) => ({
   logo: settings.logo,
 })
 
-const Login = ({ dispatch, user, authProvider, logo }) => {
+const Login = ({ dispatch, user, logo /* authProvider, */ }) => {
   const onFinish = values => {
     dispatch({
       type: 'user/LOGIN',
@@ -23,15 +23,15 @@ const Login = ({ dispatch, user, authProvider, logo }) => {
     console.log('Failed:', errorInfo)
   }
 
-  const changeAuthProvider = value => {
-    dispatch({
-      type: 'settings/CHANGE_SETTING',
-      payload: {
-        setting: 'authProvider',
-        value,
-      },
-    })
-  }
+  // const changeAuthProvider = value => {
+  //   dispatch({
+  //     type: 'settings/CHANGE_SETTING',
+  //     payload: {
+  //       setting: 'authProvider',
+  //       value,
+  //     },
+  //   })
+  // }
 
   return (
     <div>
@@ -50,7 +50,7 @@ const Login = ({ dispatch, user, authProvider, logo }) => {
         <div className="text-dark font-size-24 mb-3">
           <strong>Sign in to your account</strong>
         </div>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <Radio.Group onChange={e => changeAuthProvider(e.target.value)} value={authProvider}>
             <Radio value="firebase">Firebase</Radio>
             <Radio value="jwt">JWT</Radio>
@@ -65,7 +65,7 @@ const Login = ({ dispatch, user, authProvider, logo }) => {
               </Radio>
             </Tooltip>
           </Radio.Group>
-        </div>
+        </div> */}
         <Form
           layout="vertical"
           hideRequiredMark
@@ -100,12 +100,12 @@ const Login = ({ dispatch, user, authProvider, logo }) => {
           Forgot Password?
         </Link>
       </div>
-      <div className="text-center pt-2 mb-auto">
+      {/* <div className="text-center pt-2 mb-auto">
         <span className="mr-2">Don&#39;t have an account?</span>
         <Link to="/auth/register" className="kit__utils__link font-size-16">
           Sign up
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }

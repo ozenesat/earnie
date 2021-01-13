@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Layout } from 'antd'
-import { Link, withRouter } from 'react-router-dom'
+// import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import classNames from 'classnames'
 import Sidebar from 'components/cleanui/layout/Sidebar'
 import SupportChat from 'components/cleanui/layout/SupportChat'
@@ -55,12 +56,12 @@ const AuthLayout = ({
                 {logo === 'Earnie' && <div className={style.descr}>Beta</div>}
               </div>
             </div>
-            <div className="d-none d-sm-block">
+            {/* <div className="d-none d-sm-block">
               <span className="mr-2">Don&#39;t have an account?</span>
               <Link to="/auth/register" className="font-size-16 kit__utils__link">
                 Sign up
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className={style.containerInner}>{children}</div>
           <div className="mt-auto pb-5 pt-5">
@@ -89,8 +90,8 @@ const AuthLayout = ({
               </li>
             </ul>
             <div className="text-center">
-              Copyright © 2017-2020 Mdtk Soft |{' '}
-              <a href="https://www.mediatec.org/privacy" target="_blank" rel="noopener noreferrer">
+              Copyright © 2021 Earnie |{' '}
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 Privacy Policy
               </a>
             </div>
