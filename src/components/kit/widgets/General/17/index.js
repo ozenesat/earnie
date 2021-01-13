@@ -9,10 +9,13 @@ const General17 = () => {
         <div className="font-size-70 pt-3 pb-w text-gray-4">
           <i className="fe fe-star" />
         </div>
-        <h5 className="font-size-24 font-weight-bold mb-1">David Beckham</h5>
-        <div className="font-size-18 text-uppercase mb-3">8748-XXXX-1678-5416</div>
-        <div className="font-weight-bold font-size-18 text-uppercase mb-4">MASTERCARD</div>
-        <div className="border-top pt-3 font-italic">Expires at 03/22</div>
+        <h5 className="font-size-24 font-weight-bold mb-1">Strategy 1</h5>
+        <div className="font-size-18 text-uppercase mb-3">5.6%</div>
+        <div className="font-weight-bold font-size-18 text-uppercase mb-4">Sky Rocket</div>
+        <div className="border-top pt-3 font-italic">Created at 03/22</div>
+        <div className="btn btn-danger" style={{ width: '100%' }}>
+          <strong>STOP</strong>
+        </div>
       </div>
     </div>
   )

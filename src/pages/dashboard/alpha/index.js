@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Button, Table } from 'antd'
+import { Button } from 'antd'
 import Chart4 from 'components/kit/widgets/Charts/4'
 import Chart4v1 from 'components/kit/widgets/Charts/4v1'
 import Chart4v2 from 'components/kit/widgets/Charts/4v2'
@@ -15,47 +15,32 @@ import General18 from 'components/kit/widgets/General/18'
 import General18v1 from 'components/kit/widgets/General/18v1'
 import General6 from 'components/kit/widgets/General/6'
 import General6v1 from 'components/kit/widgets/General/6v1'
-import { tableData } from './data.json'
-
-const tableColumns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: 'Position',
-    dataIndex: 'position',
-    key: 'position',
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-    sorter: (a, b) => a.age - b.age,
-  },
-  {
-    title: 'Office',
-    dataIndex: 'office',
-    key: 'office',
-  },
-  {
-    title: 'Date',
-    dataIndex: 'date',
-    key: 'date',
-  },
-  {
-    title: 'Salary',
-    dataIndex: 'salary',
-    key: 'salary',
-    sorter: (a, b) => a.salary - b.salary,
-  },
-]
 
 const DashboardAlpha = () => {
   return (
     <div>
       <Helmet title="Dashboard: Analytics" />
+      <div className="cui__utils__heading mb-3">
+        <strong>Your Strategies (3)</strong>
+        <Button className="ml-3">View All</Button>
+      </div>
+      <div className="row">
+        <div className="col-lg-4">
+          <div className="card">
+            <General17 />
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div className="card">
+            <General17v1 />
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div className="card">
+            <General17v2 />
+          </div>
+        </div>
+      </div>
       <div className="cui__utils__heading">
         <strong>Today Statistics</strong>
       </div>
@@ -109,44 +94,6 @@ const DashboardAlpha = () => {
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="card">
-            <div className="card-header">
-              <div className="cui__utils__heading mb-0">
-                <strong>Recently Referrals</strong>
-              </div>
-              <div className="text-muted">Block with important Recently Referrals information</div>
-            </div>
-            <div className="card-body">
-              <div className="kit__utils__table">
-                <Table columns={tableColumns} dataSource={tableData} pagination={false} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="cui__utils__heading mb-3">
-        <strong>Your Cards (3)</strong>
-        <Button className="ml-3">View All</Button>
-      </div>
-      <div className="row">
-        <div className="col-lg-4">
-          <div className="card">
-            <General17 />
-          </div>
-        </div>
-        <div className="col-lg-4">
-          <div className="card">
-            <General17v1 />
-          </div>
-        </div>
-        <div className="col-lg-4">
-          <div className="card">
-            <General17v2 />
-          </div>
-        </div>
-      </div>
       <div className="cui__utils__heading mb-3">
         <strong>Your Accounts (6)</strong>
         <Button className="ml-3">View All</Button>
@@ -193,11 +140,11 @@ const DashboardAlpha = () => {
           <div className="card">
             <General6v1 />
           </div>
-          <div className="text-center pb-5">
+          {/* <div className="text-center pb-5">
             <Button type="primary" className="width-200" loading>
               Load More...
             </Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
