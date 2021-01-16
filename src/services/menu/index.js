@@ -17,7 +17,7 @@ export default async function getMenuData() {
           url: '/dashboard/alpha',
         },
         {
-          title: 'Strategies',
+          title: 'New Strategy',
           key: 'dashboardBeta',
           url: '/dashboard/beta',
         },

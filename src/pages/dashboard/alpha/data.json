@@ -1,31 +1,56 @@
 {
-  "tableData": [
+  "strategies": [
     {
-      "key": "1",
-      "name": "Damon",
-      "position": "5516 Adolfo Green",
-      "office": "Littelhaven",
-      "age": 18,
-      "date": "2014/06/13",
-      "salary": 553.536
+      "name": "Sandwich8",
+      "created_by": "Burak Eskici",
+      "creation_date": "12-02-2020",
+      "confidence": 0.01,
+      "intraday_take_profit": 0.08,
+      "intraday_stop_loss": -0.05,
+      "endday_take_profit": 1,
+      "endday_stop_loss": -1,
+      "ai_engine": "SKY ROCKET",
+      "active": true,
+      "private": false
     },
     {
-      "key": "2",
-      "name": "Miracle",
-      "position": "176 Hirthe Squares",
-      "office": "Ryleetown",
-      "age": 35,
-      "date": "2013/09/27",
-      "salary": 784.802
+      "name": "Rock1",
+      "created_by": "Umut Eser",
+      "creation_date": "12-01-2020",
+      "confidence": 0.5,
+      "intraday_take_profit": 0.05,
+      "intraday_stop_loss": -0.25,
+      "endday_take_profit": 5,
+      "endday_stop_loss": -2,
+      "ai_engine": "STABLE CLIMB",
+      "active": false,
+      "private": false
     },
     {
-      "key": "3",
-      "name": "Torrey",
-      "position": "1995 Richie Neck",
-      "office": "West Sedrickstad",
-      "age": 15,
-      "date": "2014/09/12",
-      "salary": 344.302
+      "name": "Soft",
+      "created_by": "Esat Ozen",
+      "creation_date": "01-01-2021",
+      "confidence": 0.99,
+      "intraday_take_profit": 0.49,
+      "intraday_stop_loss": -0.49,
+      "endday_take_profit": 3,
+      "endday_stop_loss": -3,
+      "ai_engine": "SKY ROCKET",
+      "active": false,
+      "private": false
+    },
+    {
+      "name": "Core",
+      "created_by": "Esat Ozen",
+      "creation_date": "01-01-2021",
+      "confidence": 0.99,
+      "intraday_take_profit": 0.49,
+      "intraday_stop_loss": -0.49,
+      "endday_take_profit": 3,
+      "endday_stop_loss": -3,
+      "ai_engine": "SKY ROCKET",
+      "active": false,
+      "private": false
     }
   ]
 }

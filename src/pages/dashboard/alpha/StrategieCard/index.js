@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './style.module.scss'
 
-const General17 = (data) => {
+const StrategieCard = (data) => {
   const strategie = data.data
   let buttonJsx = (
     <div className="btn btn-success" style={{ width: '100%' }}>
@@ -20,7 +20,7 @@ const General17 = (data) => {
   return (
     <div>
       <div className="position-relative py-3 px-4 text-center">
-        <div className={`${style.flag}`}>$560,245.35</div>
+        <div className={`${style.flag}`}>$$$</div>
         <div className="font-size-70 pt-3 pb-w text-gray-4">
           <i className="fe fe-star" />
         </div>
@@ -34,4 +34,4 @@ const General17 = (data) => {
   )
 }
 
-export default General17
+export default StrategieCard
