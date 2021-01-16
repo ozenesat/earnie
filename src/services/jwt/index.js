@@ -3,7 +3,7 @@ import store from 'store'
 
 export async function login(email, password) {
   return apiClient
-    .post('/auth/login', {
+    .post('/api/login', {
       email,
       password,
     })

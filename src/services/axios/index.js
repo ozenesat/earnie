@@ -3,7 +3,7 @@ import store from 'store'
 import { notification } from 'antd'
 
 const apiClient = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://earnie-yt.herokuapp.com/',
   // timeout: 1000,
   // headers: { 'X-Custom-Header': 'foobar' }
 })
