@@ -12,7 +12,6 @@ export async function login(email, password) {
       if (response) {
         const accessToken = response.data.access_token
         userId = response.data.user.id
-        console.log('RESPONSE: ', userId)
         if (accessToken) {
           store.set('accessToken', accessToken)
         }

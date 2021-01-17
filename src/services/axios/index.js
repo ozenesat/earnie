@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from 'store'
-import { notification } from 'antd'
+// import { notification } from 'antd'
 
 const apiClient = axios.create({
   baseURL: 'https://earnie-yt.herokuapp.com',
@@ -21,10 +21,10 @@ apiClient.interceptors.response.use(undefined, error => {
   const { response } = error
   const { data } = response
   if (data) {
-    notification.warning({
-      message: data,
-    })
+    console.log(data)
   }
 })
 
 export default apiClient
+
+

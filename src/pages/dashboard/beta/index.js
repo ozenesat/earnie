@@ -1,16 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
+import store from 'store'
 // import { Helmet } from 'react-helmet'
-// import General19 from 'components/kit/widgets/General/19'
-import { Input, Cascader, Checkbox, Form } from 'antd'
+import { Input, Cascader, Checkbox, Form, Button, notification } from 'antd'
 
 const DashboardBeta = () => {
+  const [enabled, setEnabled] = useState(false)
+  const [created, setCreated] = useState(false)
+  if (enabled) setEnabled(true)
+  const accessToken = store.get('accessToken')
+  const onFinish = values => {
+    // eslint-disable-next-line prefer-destructuring
+    // values.ai_engine = values.ai_engine[0]
+    axios({
+      url: 'https://earnie-yt.herokuapp.com/api/create_strategy',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      },
+      data: values
+    })
+      .then(() => {
+        notification.success({
+          message: `${values.name} Strategy is created!`,
+        })
+        values = null
+        setCreated(true)
+      })
+      .catch(console.error)
+  }
+
+    const onFinishFailed = errorInfo => {
+      console.log('Failed:', errorInfo)
+    }
   const engines = [
     {
-      value: 'skyRocket',
+      value: 'skyrocket',
       label: 'Sky Rocket',
     },
     {
-      value: 'stableClimb',
+      value: 'stableclimb',
       label: 'Stable Climb',
     }
   ]
@@ -24,6 +53,24 @@ const DashboardBeta = () => {
       label: 'Public',
     }
   ]
+  const onClick = (event) => {
+    event.preventDefault()
+    setCreated(false)
+  }
+
+  if(created) {
+    return (
+      <Button
+        type="primary"
+        size="x-large"
+        className="text-center w-100"
+        htmlType="submit"
+        onClick={onClick}
+      >
+        <strong>Create a New Strategy</strong>
+      </Button>
+    )
+  }
 
   return (
     /* <div>
@@ -50,10 +97,14 @@ const DashboardBeta = () => {
         <h5 className="mb-4">
           <strong>Strategy</strong>
         </h5>
-        <Form layout="vertical">
+        <Form 
+          layout="vertical"
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+        >
           <div className="row">
             <div className="col-md-6">
-              <Form.Item name="strategyName" label="Name">
+              <Form.Item name="name" label="Name">
                 <Input placeholder="Sandwich8" />
               </Form.Item>
             </div>
@@ -73,17 +124,17 @@ const DashboardBeta = () => {
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="endday_take_profit" label="End of Day Take Profit">
+              <Form.Item name="Eod_take_profit" label="End of Day Take Profit">
                 <Input placeholder="1" type="number" />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="endday_stop_loss" label="End of Day Stop Loss">
+              <Form.Item name="Eod_stop_loss" label="End of Day Stop Loss">
                 <Input placeholder="-1" type="number" />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="privacy" label="Privacy">
+              <Form.Item name="is_private" label="Privacy">
                 <Cascader options={privacy} />
               </Form.Item>
             </div>
@@ -93,16 +144,20 @@ const DashboardBeta = () => {
               </Form.Item>
             </div>
             <div className="col-12">
-              <Form.Item valuePropName="checked" name="confirm3">
+              <Form.Item valuePropName="checked" name="confirm">
                 <Checkbox className="text-uppercase">
-                  I CONFIRM THAT EARNIE DOES NOT GUARANTEE ANY PROFIT OR LOSS.
+                  I ACKNOWLEDGE THAT EARNIE DOES NOT GUARANTEE ANY PROFIT OR LOSS.
                 </Checkbox>
               </Form.Item>
-              <Form.Item name="confirm4">
-                <button type="button" className="btn btn-light px-5">
-                  Save
-                </button>
-              </Form.Item>
+              <Button
+                type="primary"
+                size="large"
+                className="text-center w-100"
+                htmlType="submit"
+                disabled={enabled}
+              >
+                <strong>Save</strong>
+              </Button>
             </div>
           </div>
         </Form>

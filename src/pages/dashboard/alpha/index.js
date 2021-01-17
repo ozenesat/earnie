@@ -1,10 +1,25 @@
 /* eslint-disable no-else-return */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import store from 'store'
 import StrategieCard from './StrategieCard'
-import data from './data.json'
 
 const DashboardAlpha = () => {
-  const {strategies} = data
+  const [strategies, setStrategies] = useState([])
+  const accessToken = store.get('accessToken')
+  useEffect(() => {
+    axios({
+      url: 'https://earnie-yt.herokuapp.com/api/get_strategies/',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    })
+      .then(res => {
+        setStrategies(res.data.strategies)
+      })
+      .catch(console.error)
+  }, [])
 
   if(strategies.length > 0) {
     const strategieJsx = strategies.map(strategie => (
