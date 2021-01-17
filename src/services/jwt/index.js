@@ -24,7 +24,7 @@ export async function login(email, password) {
 
 export async function register(email, password, name) {
   return apiClient
-    .post('/auth/register', {
+    .post('/api/register', {
       email,
       password,
       name,
