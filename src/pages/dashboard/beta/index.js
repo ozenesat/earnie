@@ -104,47 +104,47 @@ const DashboardBeta = () => {
         >
           <div className="row">
             <div className="col-md-6">
-              <Form.Item name="name" label="Name">
+              <Form.Item name="name" label="Name" rules={[{ required: true, message: 'Please set a name.' }]}>
                 <Input placeholder="Sandwich8" />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="confidence" label="Confidence">
+              <Form.Item name="confidence" label="Confidence" rules={[{ required: true, message: 'Please set a confidence level.' }]}>
                 <Input placeholder="0.01" type="number" />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="intraday_take_profit" label="Take Profit">
+              <Form.Item name="intraday_take_profit" label="Take Profit" rules={[{ required: true, message: 'Please set a profit level.' }]}>
                 <Input placeholder="0.08" type="number" />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="intraday_stop_loss" label="Stop Loss">
+              <Form.Item name="intraday_stop_loss" label="Stop Loss" rules={[{ required: true, message: 'Please set a loss level.' }]}>
                 <Input placeholder="-0.05" type="number" />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="Eod_take_profit" label="End of Day Take Profit">
+              <Form.Item name="Eod_take_profit" label="End of Day Take Profit" rules={[{ required: true, message: 'Please set a end day profit level.' }]}>
                 <Input placeholder="1" type="number" />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="Eod_stop_loss" label="End of Day Stop Loss">
+              <Form.Item name="Eod_stop_loss" label="End of Day Stop Loss" rules={[{ required: true, message: 'Please set a end day loss level.' }]}>
                 <Input placeholder="-1" type="number" />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="is_private" label="Privacy">
+              <Form.Item name="is_private" label="Privacy" rules={[{ required: true, message: 'Please set a privacy status.' }]}>
                 <Cascader options={privacy} />
               </Form.Item>
             </div>
             <div className="col-md-4">
-              <Form.Item name="ai_engine" label="AI Engine">
+              <Form.Item name="ai_engine" label="AI Engine" rules={[{ required: true, message: 'Please set a AI Engine.' }]}>
                 <Cascader options={engines} />
               </Form.Item>
             </div>
             <div className="col-12">
-              <Form.Item valuePropName="checked" name="confirm">
+              <Form.Item valuePropName="checked" name="confirm" rules={[{ required: true, message: 'Please check the box.' }]}>
                 <Checkbox className="text-uppercase">
                   I ACKNOWLEDGE THAT EARNIE DOES NOT GUARANTEE ANY PROFIT OR LOSS.
                 </Checkbox>

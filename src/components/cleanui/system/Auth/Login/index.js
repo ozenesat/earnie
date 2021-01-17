@@ -7,7 +7,7 @@ import style from '../style.module.scss'
 const mapStateToProps = ({ user, settings, dispatch }) => ({
   dispatch,
   user,
-  authProvider: settings.authProvider,
+  authProvider: "jwt",
   logo: settings.logo,
 })
 
@@ -52,8 +52,8 @@ const Login = ({ dispatch, user, authProvider, logo }) => {
         </div>
         <div className="mb-4">
           <Radio.Group onChange={e => changeAuthProvider(e.target.value)} value={authProvider}>
-            <Radio value="firebase" disabled>Firebase</Radio>
             <Radio value="jwt">JWT</Radio>
+            <Radio value="firebase" disabled>Firebase</Radio>
             <Tooltip title="Read Docs Guide">
               <Radio value="Auth0" disabled>
                 Auth0
