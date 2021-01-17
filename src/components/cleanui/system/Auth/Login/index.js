@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Input, Button, Form /* Radio, , Tooltip */ } from 'antd'
-import { Link } from 'react-router-dom'
+import { Input, Button, Radio, Form, Tooltip } from 'antd'
+// import { Link } from 'react-router-dom'
 import style from '../style.module.scss'
 
 const mapStateToProps = ({ user, settings, dispatch }) => ({
@@ -11,7 +11,7 @@ const mapStateToProps = ({ user, settings, dispatch }) => ({
   logo: settings.logo,
 })
 
-const Login = ({ dispatch, user, logo /* authProvider, */ }) => {
+const Login = ({ dispatch, user, authProvider, logo }) => {
   const onFinish = values => {
     dispatch({
       type: 'user/LOGIN',
@@ -23,15 +23,15 @@ const Login = ({ dispatch, user, logo /* authProvider, */ }) => {
     console.log('Failed:', errorInfo)
   }
 
-  // const changeAuthProvider = value => {
-  //   dispatch({
-  //     type: 'settings/CHANGE_SETTING',
-  //     payload: {
-  //       setting: 'authProvider',
-  //       value,
-  //     },
-  //   })
-  // }
+  const changeAuthProvider = value => {
+    dispatch({
+      type: 'settings/CHANGE_SETTING',
+      payload: {
+        setting: 'authProvider',
+        value,
+      },
+    })
+  }
 
   return (
     <div>
@@ -50,9 +50,9 @@ const Login = ({ dispatch, user, logo /* authProvider, */ }) => {
         <div className="text-dark font-size-24 mb-3">
           <strong>Sign in to your account</strong>
         </div>
-        {/* <div className="mb-4">
+        <div className="mb-4">
           <Radio.Group onChange={e => changeAuthProvider(e.target.value)} value={authProvider}>
-            <Radio value="firebase">Firebase</Radio>
+            <Radio value="firebase" disabled>Firebase</Radio>
             <Radio value="jwt">JWT</Radio>
             <Tooltip title="Read Docs Guide">
               <Radio value="Auth0" disabled>
@@ -65,14 +65,14 @@ const Login = ({ dispatch, user, logo /* authProvider, */ }) => {
               </Radio>
             </Tooltip>
           </Radio.Group>
-        </div> */}
+        </div>
         <Form
           layout="vertical"
           hideRequiredMark
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           className="mb-4"
-          initialValues={{ email: 'demo@sellpixels.com', password: 'demo123' }}
+          initialValues={{ email: 'deneme1@gmail.com', password: 'deneme1' }}
         >
           <Form.Item
             name="email"
@@ -96,9 +96,9 @@ const Login = ({ dispatch, user, logo /* authProvider, */ }) => {
             <strong>Sign in</strong>
           </Button>
         </Form>
-        <Link to="/auth/forgot-password" className="kit__utils__link font-size-16">
+        {/* <Link to="/auth/forgot-password" className="kit__utils__link font-size-16">
           Forgot Password?
-        </Link>
+        </Link> */}
       </div>
       {/* <div className="text-center pt-2 mb-auto">
         <span className="mr-2">Don&#39;t have an account?</span>

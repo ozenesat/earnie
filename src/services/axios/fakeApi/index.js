@@ -1,4 +1,4 @@
-import mock from './mock'
-import './auth'
+// import mock from './mock'
+// import './auth'
 
-mock.onAny().passThrough()
+// mock.onAny().passThrough()
