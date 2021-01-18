@@ -14,3 +14,4 @@ Please read documentation here https://docs.sellpixels.com
 ### Support ###
 Use GitHub Issues for tracking bugs and creating new feature requests or write to [support@sellpixels.com](mailto:support@sellpixels.com).
 # earnie
+# fe
